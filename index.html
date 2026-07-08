@@ -1,1 +1,377 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Nexileo — Next‑gen technology intelligence</title>
+  <meta name="description" content="Nexileo delivers premium tech reviews, AI insights, and buying guides for the modern digital world. Trusted by innovators globally.">
+  <link rel="canonical" href="https://nexileo.dev/">
+  <meta property="og:title" content="Nexileo — AI, Tech & Digital Products">
+  <meta property="og:description" content="Global technology brand featuring in-depth reviews, AI tools, and smart buying guides.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Nexileo",
+      "url": "https://nexileo.dev",
+      "logo": "https://nexileo.dev/favicon.ico",
+      "sameAs": ["https://twitter.com/nexileo","https://linkedin.com/company/nexileo"]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://nexileo.dev",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://nexileo.dev/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  </script>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <style>
+    /* ----- RESET & BASE ----- */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #f8fafc; --surface: #ffffff; --surface-glass: rgba(255,255,255,0.65);
+      --primary: #0b1120; --secondary: #1e293b; --accent: #3b82f6; --accent-hover: #2563eb;
+      --success: #22c55e; --warning: #f59e0b; --danger: #ef4444;
+      --text: #0b1120; --text-muted: #475569; --border: #e2e8f0;
+      --shadow: 0 12px 40px -12px rgba(0,0,0,0.08); --shadow-lg: 0 24px 64px -16px rgba(0,0,0,0.14);
+      --radius: 20px; --radius-sm: 12px; --transition: 0.25s cubic-bezier(0.2, 0, 0, 1);
+      --font-display: 'Inter', system-ui, sans-serif; --font-body: 'Inter', system-ui, sans-serif;
+    }
+    [data-theme="dark"] {
+      --bg: #0f172a; --surface: #1e293b; --surface-glass: rgba(30,41,59,0.75);
+      --primary: #f1f5f9; --secondary: #cbd5e1; --text: #f1f5f9; --text-muted: #94a3b8;
+      --border: #334155; --shadow: 0 12px 40px -12px rgba(0,0,0,0.6);
+      --accent: #60a5fa; --accent-hover: #93bbfc;
+    }
+    html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+    body {
+      background: var(--bg); color: var(--text); font-family: var(--font-body);
+      line-height: 1.6; transition: background 0.2s, color 0.2s; padding-top: 72px;
+    }
+    a { text-decoration: none; color: var(--accent); }
+    img { max-width: 100%; display: block; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 72px 0; }
+
+    /* ----- GLASS & UTILITY ----- */
+    .glass { background: var(--surface-glass); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.15); }
+    .badge { display: inline-block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.03em; padding: 4px 12px; border-radius: 100px; background: var(--accent); color: #fff; }
+    .badge-success { background: var(--success); }
+    .badge-warning { background: var(--warning); }
+
+    /* ----- BUTTONS ----- */
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; border-radius: 60px; font-weight: 600; font-size: 0.95rem; border: none; cursor: pointer; transition: all var(--transition); background: var(--primary); color: #fff; }
+    .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 4px 12px rgba(59,130,246,0.25); }
+    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 12px 24px -8px rgba(59,130,246,0.4); }
+    .btn-outline { background: transparent; border: 1.5px solid var(--border); color: var(--text); }
+    .btn-outline:hover { border-color: var(--accent); background: var(--surface-glass); }
+
+    /* ----- NAVIGATION ----- */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 12px 0; transition: all 0.2s; background: var(--surface-glass);
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+    .navbar.scrolled { padding: 6px 0; box-shadow: var(--shadow); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+    .logo { font-size: 1.7rem; font-weight: 700; letter-spacing: -0.03em; color: var(--primary); }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 28px; align-items: center; font-weight: 500; font-size: 0.95rem; }
+    .nav-links a { color: var(--text); transition: color 0.2s; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--accent); transition: width 0.2s; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-actions { display: flex; gap: 12px; align-items: center; }
+    .theme-toggle { background: none; border: none; font-size: 1.4rem; cursor: pointer; padding: 4px 8px; border-radius: 40px; }
+
+    /* ----- HERO ----- */
+    .hero { padding: 40px 0 72px; position: relative; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .hero h1 { font-size: clamp(2.6rem, 7vw, 4.8rem); font-weight: 700; line-height: 1.05; letter-spacing: -0.03em; }
+    .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 540px; margin: 20px 0 28px; }
+    .hero-stats { display: flex; gap: 32px; margin-top: 32px; }
+    .hero-stats div { font-weight: 600; }
+    .hero-stats small { display: block; font-weight: 400; color: var(--text-muted); font-size: 0.85rem; }
+    .hero-visual { position: relative; display: flex; justify-content: center; }
+    .floating-card { background: var(--surface); border-radius: var(--radius); padding: 20px 24px; box-shadow: var(--shadow-lg); border: 1px solid var(--border); max-width: 280px; }
+    .floating-card .price { font-weight: 700; color: var(--accent); }
+
+    /* ----- SEARCH SECTION ----- */
+    .search-wrap { background: var(--surface); border-radius: var(--radius); padding: 40px; box-shadow: var(--shadow); border: 1px solid var(--border); }
+    .search-input-group { display: flex; flex-wrap: wrap; gap: 12px; margin: 16px 0; }
+    .search-input-group input { flex: 1; padding: 16px 20px; border-radius: 60px; border: 1px solid var(--border); font-size: 1rem; background: var(--bg); color: var(--text); }
+    .popular-searches { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+
+    /* ----- CARDS (featured, reviews, guides) ----- */
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 28px; margin-top: 32px; }
+    .card { background: var(--surface); border-radius: var(--radius); padding: 20px; border: 1px solid var(--border); transition: all var(--transition); box-shadow: var(--shadow); }
+    .card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .card img { border-radius: var(--radius-sm); background: var(--border); height: 180px; object-fit: cover; margin-bottom: 16px; }
+    .card h3 { font-size: 1.2rem; font-weight: 600; }
+    .card .meta { display: flex; gap: 16px; font-size: 0.8rem; color: var(--text-muted); margin: 8px 0 12px; }
+    .rating { color: var(--warning); letter-spacing: 2px; }
+
+    /* ----- AI TOOLS / GUIDES ----- */
+    .guide-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 24px; }
+
+    /* ----- FOOTER ----- */
+    .footer { background: var(--primary); color: #e2e8f0; padding: 64px 0 24px; border-radius: 40px 40px 0 0; margin-top: 40px; }
+    .footer a { color: #cbd5e1; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 32px; }
+
+    /* ----- RESPONSIVE ----- */
+    @media (max-width: 1024px) { .hero-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 720px) { .nav-links { display: none; } .hero h1 { font-size: 2.4rem; } .section { padding: 48px 0; } }
+    @media (max-width: 480px) { .container { padding: 0 16px; } .search-input-group input { width: 100%; } }
+
+    /* ----- ANIMATIONS (Intersection Observer) ----- */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .counter { font-size: 2.8rem; font-weight: 700; }
+  </style>
+</head>
+<body>
+<!-- ===== NAVIGATION ===== -->
+<header class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container nav-inner">
+    <a href="#" class="logo">Nexi<span>leo</span></a>
+    <div class="nav-links">
+      <a href="#reviews">Reviews</a>
+      <a href="#ai">AI</a>
+      <a href="#guides">Guides</a>
+      <a href="#blog">Blog</a>
+      <a href="#tools">Tools</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Switch theme">🌓</button>
+      <a href="#search" class="btn btn-primary" style="padding: 8px 20px; font-size:0.9rem;">Search</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- ===== HERO ===== -->
+  <section class="hero container" id="home">
+    <div class="hero-grid">
+      <div>
+        <span class="badge">✦ Next‑gen intelligence</span>
+        <h1>Think beyond.<br>Build with <span style="color:var(--accent);">Nexileo</span>.</h1>
+        <p>Global tech intelligence for AI, digital products, and smart decision‑making. Trusted by 120k+ innovators.</p>
+        <div style="display:flex; gap:16px; flex-wrap:wrap;">
+          <a href="#search" class="btn btn-primary">Explore →</a>
+          <a href="#reviews" class="btn btn-outline">Latest reviews</a>
+        </div>
+        <div class="hero-stats">
+          <div><span class="counter" data-count="120">0</span>k+ <small>users</small></div>
+          <div><span class="counter" data-count="340">0</span>+ <small>reviews</small></div>
+          <div><span class="counter" data-count="99">0</span>% <small>satisfaction</small></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="floating-card glass" style="transform: rotate(2deg);">
+          <div style="display:flex; gap:12px; align-items:center;"><span style="font-size:2rem;">⚡</span><div><strong>AI Assistant</strong><div class="price">$0 / mo</div></div></div>
+          <div style="margin-top:12px; height:4px; background:var(--accent); border-radius:4px; width:70%;"></div>
+        </div>
+        <div class="floating-card glass" style="transform: rotate(-3deg); margin-top: 20px; margin-left: 20px;">
+          <span style="font-weight:600;">🏆 Editor's Choice</span>
+          <p style="font-size:0.9rem;">MacBook Pro M4</p>
+          <span class="badge badge-success">9.6 / 10</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SEARCH ===== -->
+  <section class="container section" id="search">
+    <div class="search-wrap glass" style="background:var(--surface-glass);">
+      <h2 style="font-size:1.8rem;">Find what matters.</h2>
+      <div class="search-input-group">
+        <input type="text" placeholder="Search reviews, AI tools, guides…" aria-label="Search">
+        <button class="btn btn-primary">Search</button>
+      </div>
+      <div class="popular-searches">
+        <span class="badge" style="background:var(--border);color:var(--text);">AI agents</span>
+        <span class="badge" style="background:var(--border);color:var(--text);">Best laptops</span>
+        <span class="badge" style="background:var(--border);color:var(--text);">Productivity</span>
+        <span class="badge" style="background:var(--border);color:var(--text);">Smart home</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURED CATEGORIES ===== -->
+  <section class="container section" id="categories">
+    <h2 style="font-size:2rem;">Explore categories</h2>
+    <div class="card-grid">
+      <div class="card"><span style="font-size:2.4rem;">🤖</span><h3>AI</h3><p>Latest models & agents</p></div>
+      <div class="card"><span style="font-size:2.4rem;">💻</span><h3>Laptops</h3><p>Performance benchmarks</p></div>
+      <div class="card"><span style="font-size:2.4rem;">📱</span><h3>Smartphones</h3><p>Flagship comparisons</p></div>
+      <div class="card"><span style="font-size:2.4rem;">🔧</span><h3>Dev Tools</h3><p>Code & productivity</p></div>
+      <div class="card"><span style="font-size:2.4rem;">🎮</span><h3>Gaming</h3><p>Consoles & GPUs</p></div>
+      <div class="card"><span style="font-size:2.4rem;">📰</span><h3>News</h3><p>Tech updates daily</p></div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURED REVIEWS ===== -->
+  <section class="container section" id="reviews">
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;">
+      <h2 style="font-size:2rem;">Featured reviews</h2>
+      <a href="#" class="btn btn-outline">See all →</a>
+    </div>
+    <div class="card-grid">
+      <div class="card"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'%3E%3Crect fill='%23e2e8f0' width='400' height='200'/%3E%3Ctext x='20' y='120' font-family='Inter' font-size='18' fill='%23475569'%3EProduct image%3C/text%3E%3C/svg%3E" alt="Product"><h3>Sony WH-1000XM6</h3><div class="rating">★★★★★ 4.9</div><p>Best noise‑cancelling.</p><a href="#" class="btn btn-primary" style="margin-top:12px;">Read review</a></div>
+      <div class="card"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'%3E%3Crect fill='%23e2e8f0' width='400' height='200'/%3E%3Ctext x='20' y='120' font-family='Inter' font-size='18' fill='%23475569'%3EProduct image%3C/text%3E%3C/svg%3E" alt="Product"><h3>M4 MacBook Pro</h3><div class="rating">★★★★☆ 4.7</div><p>Incredible performance.</p><a href="#" class="btn btn-primary" style="margin-top:12px;">Read review</a></div>
+      <div class="card"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'%3E%3Crect fill='%23e2e8f0' width='400' height='200'/%3E%3Ctext x='20' y='120' font-family='Inter' font-size='18' fill='%23475569'%3EProduct image%3C/text%3E%3C/svg%3E" alt="Product"><h3>DJI Air 3S</h3><div class="rating">★★★★★ 5.0</div><p>Ultimate drone.</p><a href="#" class="btn btn-primary" style="margin-top:12px;">Read review</a></div>
+    </div>
+  </section>
+
+  <!-- ===== AI TOOLS ===== -->
+  <section class="container section" id="ai">
+    <h2 style="font-size:2rem;">AI tools we love</h2>
+    <div class="guide-grid">
+      <div class="card"><span style="font-size:2rem;">🧠</span><h4>Claude 3.7</h4><p>Reasoning & code</p><span class="badge badge-success">Free</span></div>
+      <div class="card"><span style="font-size:2rem;">✨</span><h4>Midjourney</h4><p>Image generation</p><span class="badge badge-warning">Pro</span></div>
+      <div class="card"><span style="font-size:2rem;">🤖</span><h4>Perplexity</h4><p>Research assistant</p><span class="badge badge-success">Free</span></div>
+      <div class="card"><span style="font-size:2rem;">⚡</span><h4>Cursor</h4><p>AI code editor</p><span class="badge badge-success">Free</span></div>
+    </div>
+  </section>
+
+  <!-- ===== GUIDES / DEALS ===== -->
+  <section class="container section" id="guides">
+    <h2 style="font-size:2rem;">Best deals & guides</h2>
+    <div class="card-grid">
+      <div class="card"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'%3E%3Crect fill='%23e2e8f0' width='400' height='200'/%3E%3Ctext x='20' y='120' font-family='Inter' font-size='18' fill='%23475569'%3EDeal image%3C/text%3E%3C/svg%3E" alt="deal"><h3>Ultimate gaming monitor</h3><div class="price">$399 <span style="text-decoration:line-through;color:var(--text-muted);">$599</span></div><a href="#" class="btn btn-primary">View deal</a></div>
+      <div class="card"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'%3E%3Crect fill='%23e2e8f0' width='400' height='200'/%3E%3Ctext x='20' y='120' font-family='Inter' font-size='18' fill='%23475569'%3EDeal image%3C/text%3E%3C/svg%3E" alt="deal"><h3>SSD 2TB</h3><div class="price">$119 <span style="text-decoration:line-through;color:var(--text-muted);">$179</span></div><a href="#" class="btn btn-primary">View deal</a></div>
+    </div>
+  </section>
+
+  <!-- ===== NEWSLETTER ===== -->
+  <section class="container section" style="padding-bottom:20px;">
+    <div class="search-wrap" style="background:var(--surface); text-align:center;">
+      <h2>Subscribe to Nexileo</h2>
+      <p style="color:var(--text-muted); max-width:420px; margin:12px auto;">Get weekly tech insights and exclusive deals.</p>
+      <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:20px;">
+        <input type="email" placeholder="Enter your email" style="padding:14px 24px; border-radius:60px; border:1px solid var(--border); flex:1; min-width:240px; background:var(--bg);">
+        <button class="btn btn-primary">Subscribe</button>
+      </div>
+      <p style="font-size:0.8rem; color:var(--text-muted); margin-top:12px;">No spam. Unsubscribe anytime.</p>
+    </div>
+  </section>
+
+  <!-- ===== FAQ (accordion) ===== -->
+  <section class="container section" style="padding-top:20px;">
+    <h2 style="font-size:2rem;">Frequently asked</h2>
+    <div style="margin-top:24px; display:flex; flex-direction:column; gap:12px;">
+      <div class="glass" style="padding:20px; border-radius:var(--radius-sm);"><button class="accordion-btn" style="background:none; border:none; font-weight:600; font-size:1.1rem; width:100%; text-align:left; cursor:pointer; color:var(--text);">What is Nexileo?</button><div class="accordion-content" style="margin-top:8px; color:var(--text-muted);">Nexileo is a global tech intelligence platform offering reviews, AI tools, and buying guides.</div></div>
+      <div class="glass" style="padding:20px; border-radius:var(--radius-sm);"><button class="accordion-btn" style="background:none; border:none; font-weight:600; font-size:1.1rem; width:100%; text-align:left; cursor:pointer; color:var(--text);">Is Nexileo free?</button><div class="accordion-content" style="margin-top:8px; color:var(--text-muted);">Yes, all reviews and guides are free. Some AI tools may have premium tiers.</div></div>
+    </div>
+  </section>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container footer-grid">
+    <div><strong>Nexileo</strong><p style="font-size:0.9rem; margin-top:8px;">Global tech intelligence since 2024.</p></div>
+    <div><strong>Quick</strong><br><a href="#">Reviews</a><br><a href="#">AI</a><br><a href="#">Guides</a></div>
+    <div><strong>Legal</strong><br><a href="#">Privacy</a><br><a href="#">Terms</a><br><a href="#">Disclaimer</a></div>
+    <div><strong>Connect</strong><br><a href="#">Twitter</a><br><a href="#">LinkedIn</a><br><a href="#">YouTube</a></div>
+  </div>
+  <div class="container" style="border-top:1px solid #334155; margin-top:32px; padding-top:24px; display:flex; justify-content:space-between; flex-wrap:wrap; font-size:0.9rem;">
+    <span>© 2026 Nexileo. All rights reserved.</span>
+    <button id="backToTop" style="background:var(--accent); border:none; color:#fff; padding:8px 16px; border-radius:40px; cursor:pointer;">↑ Back to top</button>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    'use strict';
+    // ----- STICKY NAVBAR & SCROLL PROGRESS -----
+    const navbar = document.getElementById('navbar');
+    let lastScroll = 0;
+    window.addEventListener('scroll', function() {
+      const y = window.scrollY;
+      navbar.classList.toggle('scrolled', y > 20);
+    }, { passive: true });
+
+    // ----- THEME TOGGLE -----
+    const themeToggle = document.getElementById('themeToggle');
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    themeToggle.textContent = currentTheme === 'dark' ? '☀️' : '🌓';
+    themeToggle.addEventListener('click', function() {
+      const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌓';
+    });
+
+    // ----- BACK TO TOP -----
+    document.getElementById('backToTop').addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // ----- ACCORDION (FAQ) -----
+    document.querySelectorAll('.accordion-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const content = this.nextElementSibling;
+        const isOpen = content.style.display === 'block';
+        content.style.display = isOpen ? 'none' : 'block';
+      });
+    });
+    // initially open first
+    document.querySelector('.accordion-content').style.display = 'block';
+
+    // ----- COUNTER ANIMATION (Intersection Observer) -----
+    const counters = document.querySelectorAll('.counter');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.getAttribute('data-count'), 10);
+          let current = 0;
+          const step = Math.ceil(target / 50);
+          const interval = setInterval(() => {
+            current += step;
+            if (current >= target) { current = target; clearInterval(interval); }
+            el.textContent = current + (target === 99 ? '%' : '');
+          }, 25);
+          observer.unobserve(el);
+        }
+      });
+    }, { threshold: 0.4 });
+    counters.forEach(c => observer.observe(c));
+
+    // ----- REVEAL ON SCROLL (simple) -----
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.card, .search-wrap, .hero-grid, .guide-grid > *').forEach(el => {
+      el.classList.add('reveal');
+      revealObserver.observe(el);
+    });
+    // manually trigger for visible items
+    setTimeout(() => { document.querySelectorAll('.reveal').forEach(el => { if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible'); }); }, 100);
+
+    // ----- LAZY LOAD (dummy) / placeholder images are inline -----
+
+    // ----- TOAST (demo) -----
+    console.log('Nexileo — production ready.');
+  })();
+</script>
+</body>
+</html>
